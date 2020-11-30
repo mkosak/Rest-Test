@@ -24,10 +24,12 @@ const DataTable = () => {
 
         let results = []; // final response data
         const pageToStart = 1; // assuming that we have 1 page anyway in response
-        const promisesData = [];
+        const promisesData = []; //
 
         try {
             const response = await api.get(`/${pageToStart}.json`);
+
+            // calculate how many pages we have
             const totalTrans = response.data.totalCount;
             const totalPages = Math.ceil(
                 totalTrans / response.data.transactions.length
@@ -38,6 +40,7 @@ const DataTable = () => {
 
             // initiate additional responses based on the total data
             for (let i = pageToStart + 1; i < totalPages + 1; i++) {
+                // assuming the API alwasy have last page even with 1 transaction
                 promisesData.push(api.get(`/${i}.json`));
             }
 
@@ -58,10 +61,12 @@ const DataTable = () => {
         }
     };
 
+    // Fetch transaction data
     useEffect(() => {
         fetchTransactions();
     }, []);
 
+    // Calculate total for all transactions once loaded
     useEffect(() => {
         let total = 0;
         state.results.forEach((item) => (total += item.Amount * 1));
@@ -69,6 +74,7 @@ const DataTable = () => {
         dispatch({ type: 'calcTotal', payload: total });
     }, [state.results]);
 
+    // Show error notification
     useEffect(() => {
         if (state.error) {
             notification.setNotification({
