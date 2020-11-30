@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import { NotificationProvider } from './components/Notification/NotificationContext';
 import App from './App';
+
+import './index.scss';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <NotificationProvider>
+            <App />
+        </NotificationProvider>
     </React.StrictMode>,
     document.getElementById('root')
 );
