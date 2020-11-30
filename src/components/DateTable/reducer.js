@@ -23,7 +23,7 @@ const reducer = (state, action) => {
         case 'calcTotal':
             return {
                 ...state,
-                calcTotal: state.calcTotal + action.payload,
+                calcTotal: `$${action.payload}`,
             };
         default:
             throw new Error();

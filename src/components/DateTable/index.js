@@ -59,16 +59,18 @@ const DataTable = () => {
     };
 
     useEffect(() => {
-        //fetchTransactions();
+        fetchTransactions();
     }, []);
 
-    // useEffect(() => {
-    //     state.results.map(item => item.
-    // }, [state.results]);
+    useEffect(() => {
+        let total = 0;
+        state.results.forEach((item) => (total += item.Amount * 1));
+
+        dispatch({ type: 'calcTotal', payload: total });
+    }, [state.results]);
 
     useEffect(() => {
         if (state.error) {
-            console.log('show notif', state.error);
             notification.setNotification({
                 type: 'error',
                 msg:
@@ -77,7 +79,7 @@ const DataTable = () => {
                     state.error.response.data,
             });
         }
-    }, [state.error, notification]);
+    }, [state.error]);
 
     return (
         <React.Fragment>

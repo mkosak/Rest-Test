@@ -1,8 +1,17 @@
 .notification {
     display: none;
-    border: 2px solid red;
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    background: #fff;
+    color: #3E3F44;
+    padding: 1rem;
+    border-radius: 5px;
 
     &--show {
         display: block;
+    }
+    &--error {
+        color: red;
     }
 }

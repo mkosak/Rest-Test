@@ -16,9 +16,11 @@ export default function Notification() {
     useEffect(() => {
         setShow(true);
 
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             setShow(false);
         }, 3000); // delay of the notification in milliseconds
+
+        return () => clearTimeout(timer);
     }, [notification]);
 
     return <div className={notificationClassName}>{notification.msg}</div>;

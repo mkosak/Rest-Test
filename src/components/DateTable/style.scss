@@ -1,0 +1,49 @@
+.data-table {
+    width: 100%;
+    max-width: 200rem;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1);
+
+    &__row {
+        &:hover {
+            .data-table__cell {
+                color: #088B8C;
+            }
+        }
+    }
+
+    &__cell {
+        padding: 2.6rem 4rem;        
+        background: #FCFBFB;
+        font-size: 1.7rem;
+        color: #9F9FA1;
+        border-top: 1px solid #ECECEC;
+
+        &--heading {
+            background: #fff;
+            color: #088B8C;
+            font-weight: 700;
+            font-size: 2.5rem;
+        }
+        &--date {
+            width: 15%;
+        }
+        &--company {
+            width: 40%;
+        }
+        &--account {
+            width: 30%;
+        }
+        &--amount {
+            width: 15%;
+        }
+
+        &--skeleton:before {
+            content: '';
+            display: block;
+            background: rgba(0,0,0,.1);
+            width: 100%;
+            height: 5rem;
+        }
+    }
+}
