@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DataTableRow = (props) => {
-    const { results, loading } = props;
+    const { results } = props;
 
-    const listItems = results.map((item) => {
+    const listItems = results.map((item, index) => {
+        const key = `item_${index}`;
         return (
-            <tr className="data-table__row">
+            <tr className="data-table__row" key={key}>
                 <td className="data-table__cell data-table__cell--date">
                     {item.Date}
                 </td>
@@ -17,7 +18,7 @@ const DataTableRow = (props) => {
                     {item.Ledger}
                 </td>
                 <td className="data-table__cell data-table__cell--amount">
-                    {item.Amount}
+                    ${item.Amount}
                 </td>
             </tr>
         );

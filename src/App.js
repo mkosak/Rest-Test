@@ -1,6 +1,5 @@
 import React from 'react';
 import DataTable from './components/DateTable';
-
 import Notification from './components/Notification';
 
 import './App.scss';
@@ -8,10 +7,13 @@ import './App.scss';
 function App() {
     return (
         <div className="App">
-            <header className="App-header">Test</header>
+            <header className="header">Bench Test</header>
 
             <Notification />
-            <DataTable />
+
+            <div className="page">
+                <DataTable />
+            </div>
         </div>
     );
 }
