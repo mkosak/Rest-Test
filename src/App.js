@@ -7,7 +7,7 @@ import './App.scss';
 function App() {
     return (
         <div className="App">
-            <header className="header">Bench Test</header>
+            <header className="header">Rest Test</header>
 
             <Notification />
 
